@@ -24,6 +24,7 @@ public class ContactPerson {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+    
     public String getFirstName() {
         return firstName;
     }
@@ -97,6 +98,14 @@ public class ContactPerson {
             " | " + state +
             " | " + phoneNumber +
             " | " + email;
+    }
+
+    public String[] toCSV() {
+        return new String[]{firstName, lastName,address,city,state,zip,phoneNumber, email,};
+    }
+
+    public static ContactPerson fromCSV(String[] data) {
+        return new ContactPerson(data[0], data[1], data[2], data[3],data[4],data[5],data[6],data[7]);
     }
 
 }

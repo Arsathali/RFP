@@ -5,10 +5,14 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvValidationException;
+
 public class FileHandler {
 
    private static final String FILE_PATH = "D:\\BridgeLabz\\RFP\\RFP\\AddressBookSystem\\contacts.txt";
-
+   private static final String CSV_FILE_PATH = "D:\\BridgeLabz\\RFP\\RFP\\AddressBookSystem\\contacts.csv";
     // Save contacts
     public static void saveToFile(List<ContactPerson> contacts) {
 
@@ -67,5 +71,34 @@ public class FileHandler {
         }
 
         return contacts;
+    }
+
+    //Reading from csv
+    public static List<ContactPerson> readFromCSV() throws IOException, CsvValidationException{
+
+
+        List<ContactPerson> contacts = new ArrayList<>();
+        CSVReader reader = new CSVReader(new FileReader(CSV_FILE_PATH));
+
+        String[] line;
+
+        while((line=reader.readNext())!=null){
+            contacts.add(ContactPerson.fromCSV(line));
+        }
+
+        reader.close();
+        return contacts;
+    }
+
+    //writing to CSV file
+    public static void writeToCSV(List<ContactPerson> contacts) throws IOException{
+
+        CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE_PATH));
+
+        for(ContactPerson person : contacts){
+            writer.writeNext(person.toCSV());
+        }
+
+        writer.close();
     }
 }

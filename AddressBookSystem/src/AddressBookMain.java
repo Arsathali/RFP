@@ -3,13 +3,14 @@ import model.ContactPerson;
 import repository.AddressBookSystem;
 import service.AddressBook;
 import util.FileHandler;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AddressBookMain {
 
     private static Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         AddressBookSystem system = new AddressBookSystem();
         char addMore;
@@ -58,6 +59,7 @@ public class AddressBookMain {
                     case 11-> sortByZip(addressBook);
                     case 12-> { 
                         FileHandler.saveToFile(addressBook.getContacts());
+                        FileHandler.writeToCSV(addressBook.getContacts());
                         System.out.println("Contacts saved to file");
                     }
                     default -> System.out.println("Invalid choice");

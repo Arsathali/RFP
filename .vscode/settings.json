@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "AddressBookSystem\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\arsat\\Downloads\\opencsv-5.8.jar"
+    ]
+}
