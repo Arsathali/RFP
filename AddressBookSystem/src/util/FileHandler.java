@@ -2,9 +2,11 @@ package util;
 
 import model.ContactPerson;
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
@@ -13,6 +15,7 @@ public class FileHandler {
 
    private static final String FILE_PATH = "D:\\BridgeLabz\\RFP\\RFP\\AddressBookSystem\\contacts.txt";
    private static final String CSV_FILE_PATH = "D:\\BridgeLabz\\RFP\\RFP\\AddressBookSystem\\contacts.csv";
+    private static final String JSON_FILE_PATH = "D:\\BridgeLabz\\RFP\\RFP\\AddressBookSystem\\contacts.json";
     // Save contacts
     public static void saveToFile(List<ContactPerson> contacts) {
 
@@ -100,5 +103,32 @@ public class FileHandler {
         }
 
         writer.close();
+    }
+
+    public static void writeInJson(List<ContactPerson> contacts){
+        
+       Gson gson = new Gson();
+       FileWriter writer;
+       try {
+
+            writer = new FileWriter(JSON_FILE_PATH);
+            gson.toJson(contacts, writer);
+            writer.close(); 
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<ContactPerson> readFromJSON() throws Exception {
+
+        Gson gson = new Gson();
+        FileReader reader = new FileReader(JSON_FILE_PATH);
+
+        Type listType = new TypeToken<List<ContactPerson>>(){}.getType();
+        List<ContactPerson> persons = gson.fromJson(reader, listType);
+
+        reader.close();
+        return persons;
     }
 }

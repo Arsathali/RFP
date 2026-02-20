@@ -60,7 +60,8 @@ public class AddressBookMain {
                     case 12-> { 
                         FileHandler.saveToFile(addressBook.getContacts());
                         FileHandler.writeToCSV(addressBook.getContacts());
-                        System.out.println("Contacts saved to file");
+                        FileHandler.writeInJson(addressBook.getContacts());
+                        System.out.println("Contacts saved to text file,csv and json");
                     }
                     default -> System.out.println("Invalid choice");
                 }

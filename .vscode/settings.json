@@ -3,6 +3,7 @@
         "AddressBookSystem\\src"
     ],
     "java.project.referencedLibraries": [
+        "c:\\Users\\arsat\\Downloads\\gson-2.10.1.jar",
         "c:\\Users\\arsat\\Downloads\\opencsv-5.8.jar"
     ]
 }
