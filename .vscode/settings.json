@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "CabInvoiceGenerator\\src\\repository"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\arsat\\Downloads\\junit-platform-console-standalone-1.14.2.jar"
+    ]
+}
