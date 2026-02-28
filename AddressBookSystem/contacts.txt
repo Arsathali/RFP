@@ -1,5 +1,0 @@
-Arun,Kumar,12 MG Road,Chennai,Tamil Nadu,600001,9876543210,arun@gmail.com
-Priya,Sharma,45 Lake View,Bangalore,Karnataka,560001,9123456780,priya@gmail.com
-Rahul,Verma,78 Park Street,Mumbai,Maharashtra,400001,9988776655,rahul@gmail.com
-Sneha,Reddy,22 Temple Road,Hyderabad,Telangana,500001,9012345678,sneha@gmail.com
-Vikram,Singh,10 Green Avenue,Delhi,Delhi,110001,9090909090,vikram@gmail.com
